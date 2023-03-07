@@ -1,0 +1,95 @@
+div {
+  border: 1px solid;
+  width: 300px;
+  height: 300px;
+}
+
+div img {
+  width: 100%;
+  height: 100%;
+}
+
+.box img {
+  /* transform: transloat(x축, y축) */
+  /* 해당 태그 위치 이동. 함수처럶 생김 */
+  transform: translate(50px, 50px);
+}
+
+.box2 img {
+  /* x축으로 만 이동 */
+  transform: translateX(100px);
+}
+
+.box2 img {
+  /* y축으로 만 이동 */
+  /* x와 y를 따로 쓸 경우 밑에 있는 속성만 읽음 */
+  transform: translateY(50px);
+}
+
+.box3 img {
+  /* 크기 조절 */
+  /* 기본 값 1 (100%) 0.5는 50%*/
+  /* transform: scale(0.5) 전체 크기를 50%로 축소 */
+  /* transform: scale(0.5, 1) 가로 크기 50% 축소, 세로 크기 그대로 */
+  /* 두 값을 입력하면 x크기 y크기 조절 */
+  transform: scale(0.5, 1);
+}
+
+.box4 img {
+  /* 태그를 회전 시킴 값은 각도로 입력( 45deg는 45도를 의미) */
+  transform: rotate(45deg);
+}
+
+/* css 애니메이션 효과를 주기 위해 사용 */
+/* ani 는 애니메이션의 이름 */
+@keyframes ani {
+  /* 전체 동작중 0 ~ 50% 까지  */
+  0% {
+    transform: rotate(0);
+  }
+  /* 전체 동작 중 50% 일때 */
+  50% {
+    transform: rotate(360deg);
+  }
+  /* 전체 동작하면서 50 ~ 100%까지 */
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.box5 img {
+  /* 스타일 값이 변화면서 효과를 준다 */
+  /* transition : 변화 시간 및 방법을 설정 */
+  /* transform 3s -> 3초간 변화 */
+  /* border 1s -> border 값이 1초간 변화 */
+  /* border-radius 1s -> border-radius 값이 1초간 변화 */
+  transition: transform 3s linear, border 1s ease-in-out, border-radius 1s ease-in-out;
+}
+
+.box5 img {
+  /* animation: 이름 시간 변화방법 */
+  /* animation: ani 1s ease; */
+}
+
+/* 마우스를 태그에 올렸을 때 */
+.box5:hover img {
+  transform: rotate(720deg);
+  border: 10px solid red;
+  border-radius: 50%;
+}
+
+.box6 {
+  position: relative;
+}
+
+.box6 img {
+  /* 이미지 중앙 정렬 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 태그의 반지름 만큼 좌로 50%이동, 위로 50% 이동 */
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  
+}
